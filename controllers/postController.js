@@ -133,7 +133,7 @@ const editPost = async (req, res, next) => {
 
       if (req.user.id == oldPost.creator) {
         // delete old thumbnail from upload
-        fs.unlinkSync(path.join(__dirname, "..", "uploads", oldPost.thumbnail), async (err) => {
+        fs.unlink(path.join(__dirname, "..", "uploads", oldPost.thumbnail), async (err) => {
           if (err) {
             return next(new HttpError(err))
           }
@@ -196,6 +196,7 @@ const deletePost = async (req, res, next) => {
           const currentUser = await User.findById(req.user.id)
           const userPostCount = currentUser?.posts - 1
           await User.findByIdAndUpdate(req.user.id, { posts: userPostCount })
+          res.json(`Post ${postId} deleted successfully`)
         }
       })
     } else {
