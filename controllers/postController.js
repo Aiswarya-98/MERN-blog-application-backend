@@ -196,7 +196,7 @@ const deletePost = async (req, res, next) => {
           const currentUser = await User.findById(req.user.id)
           const userPostCount = currentUser?.posts - 1
           await User.findByIdAndUpdate(req.user.id, { posts: userPostCount })
-          res.json(`Post ${postId} deleted successfully`)
+          // res.json(`Post ${postId} deleted successfully`)
         }
       })
     } else {
@@ -204,7 +204,9 @@ const deletePost = async (req, res, next) => {
     }
 
     res.json(`post ${postId} deleted successfully.`)
-  } catch (error) {}
+  } catch (error) {
+    return next(new HttpError(error))
+  }
 }
 
 module.exports = { createPost, getPosts, getPost, getCatPosts, getUserPosts, editPost, deletePost }
