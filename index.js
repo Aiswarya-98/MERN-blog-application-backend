@@ -15,7 +15,7 @@ app.use(express.urlencoded({ extended: true }))
 app.use(cors({ credentials: true, origin: "https://mernblogapp-kappa.vercel.app" }))
 app.use(upload())
 // app.use("/uploads", express.static(__dirname + "/uploads"))
-app.use("/static/media",express.static('mernblogapp-kappa.vercel.app/static/media'))
+app.use("/static/media",express.static(__dirname +'mernblogapp-kappa.vercel.app/static/media'))
 
 // routes
 
