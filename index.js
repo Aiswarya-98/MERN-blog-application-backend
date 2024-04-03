@@ -12,7 +12,7 @@ const app = express()
 app.use(express.json({ extended: true }))
 app.use(express.urlencoded({ extended: true }))
 // added vercel link
-app.use(cors({ credentials: true, origin: "https://mernblogapp-3qztd8orq-aiswarya-shajis-projects.vercel.app/" }))
+app.use(cors({ credentials: true, origin: "https://mernblogapp-kappa.vercel.app" }))
 app.use(upload())
 app.use("/uploads", express.static(__dirname + "/uploads"))
 
