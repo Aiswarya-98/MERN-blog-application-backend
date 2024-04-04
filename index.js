@@ -12,7 +12,7 @@ const app = express()
 app.use(express.json({ extended: true }))
 app.use(express.urlencoded({ extended: true }))
 // added vercel link
-app.use(cors({ credentials: true, origin: "https://mern-blog-application-frontend.onrender.com/" }))
+app.use(cors({ credentials: true, origin: "https://mern-blog-application-frontend.onrender.com" }))
 app.use(upload())
 app.use("/uploads", express.static( "./uploads"))
 
