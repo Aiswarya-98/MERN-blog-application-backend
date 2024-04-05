@@ -22,7 +22,7 @@ app.use("/uploads", express.static( __dirname+"/uploads"))
 app.use(cors({ 
   credentials: true, 
   origin: "https://mernblogapp-kappa.vercel.app", 
-  methods: "GET,POST,PUT,DELETE",
+  methods: "GET,POST,PUT,PATCH,DELETE",
   allowedHeaders: "Content-Type,Authorization"
 }));
 
