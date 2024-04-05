@@ -14,20 +14,8 @@ app.use(express.urlencoded({ extended: true }))
 // added render link
 app.use(cors({ credentials: true, origin: "https://mern-blog-application-frontend.onrender.com" }))
 app.use(upload())
-app.use("/uploads", express.static( "uploads"))
+app.use("/uploads", express.static( __dirname+"/uploads"))
 
-
-
-// // cors
-
-// // Middleware to set Cache-Control headers for all responses
-// app.use((req, res, next) => {
-//   // Set Cache-Control header to control caching behavior
-//   res.setHeader('Cache-Control', 'public, max-age=3600'); // Adjust max-age value as needed
-
-//   // Call next middleware
-//   next();
-// });
 
 
 // routes
