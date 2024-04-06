@@ -21,7 +21,7 @@ app.use("/uploads", express.static( __dirname+"/uploads"))
 
 app.use(cors({ 
   credentials: true, 
-  origin: "https://mern-blog-frontend-app.netlify.app/", 
+  origin: "https://mern-blog-frontend-app.netlify.app", 
   methods: "GET,POST,PUT,PATCH,DELETE",
   allowedHeaders: "Content-Type,Authorization"
 }));
