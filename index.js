@@ -11,27 +11,28 @@ const { notFound, errorHandler } = require("./middleware/errorMiddleware")
 const app = express()
 app.use(express.json({ extended: true }))
 app.use(express.urlencoded({ extended: true }))
+
 // added render link
-// app.use(cors({ credentials: true, origin: "https://mernblogapp-kappa.vercel.app" }))
+app.use(cors({ credentials: true, origin: "http://localhost:3000" }))
 app.use(upload())
 app.use("/uploads", express.static( __dirname+"/uploads"))
 
 
 // --------------------------test
 
-app.use(cors({ 
-  credentials: true, 
-  origin: "https://mern-blog-frontend-app.netlify.app", 
-  methods: "GET,POST,PUT,PATCH,DELETE",
-  allowedHeaders: "Content-Type,Authorization"
-}));
+// app.use(cors({ 
+//   credentials: true, 
+//   origin: "https://mern-blog-frontend-app.netlify.app", 
+//   methods: "GET,POST,PUT,PATCH,DELETE",
+//   allowedHeaders: "Content-Type,Authorization"
+// }));
 
-app.options("*", cors());
+// app.options("*", cors());
 
-app.use((req, res, next) => {
-  res.setHeader("Access-Control-Expose-Headers", "Custom-Header");
-  next();
-});
+// app.use((req, res, next) => {
+//   res.setHeader("Access-Control-Expose-Headers", "Custom-Header");
+//   next();
+// });
 
 // ------------------------------test
 
