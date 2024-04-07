@@ -3,6 +3,7 @@ const cors = require("cors")
 const { connect } = require("mongoose")
 require("dotenv").config()
 const upload = require("express-fileupload")
+const path = require("path")
 
 const userRoutes = require("./routes/userRoutes")
 const postRoutes = require("./routes/postRoutes")
@@ -14,10 +15,10 @@ app.use(express.urlencoded({ extended: true }))
 
 // added render link
 // app.use(cors({ credentials: true, origin: "http://localhost:3000" }))
-app.use(cors({ credentials: true, origin: "https://mern-blog-frontend-h12e.onrender.com" }))
+// app.use(cors({ credentials: true, origin: "https://mern-blog-frontend-h12e.onrender.com" }))
 
 app.use(upload())
-app.use("/uploads", express.static( __dirname+"/uploads"))
+app.use("/uploads", express.static(path.join( __dirname+"/uploads")))
 
 
 // --------------------------test
