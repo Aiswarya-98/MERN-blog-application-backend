@@ -32,6 +32,7 @@ const createPost = async (req, res, next) => {
         return next(new HttpError(err))
       } else {
         const newPost = await Post.create({ title, category, description, thumbnail: newFilename, creator: req.user.id })
+        console.log(newPost);
 
         if (!newPost) {
           return next(new HttpError("Post couldn't be created", 422))
@@ -58,6 +59,7 @@ const getPosts = async (req, res, next) => {
   try {
     const posts = await Post.find().sort({ updatedAt: -1 })
     res.status(200).json(posts)
+    console.log("getallposts",posts);
   } catch (error) {
     return next(new HttpError(error))
   }
