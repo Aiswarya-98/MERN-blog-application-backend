@@ -26,7 +26,8 @@ app.use(express.urlencoded({ extended: true }))
 
 // added render link
 // app.use(cors({ credentials: true, origin: "http://localhost:3000" }))
-app.use(cors({ credentials: true, origin: "https://mern-blog-frontend-h12e.onrender.com" }))
+// app.use(cors({ credentials: true, origin: "https://mern-blog-frontend-h12e.onrender.com" }))
+app.use(cors({credentials:true,origin:"https://mern-blog-application-backend-1.onrender.com"}))
 
 app.use(upload())
 app.use("/uploads", express.static(path.join( __dirname,"/uploads")))
